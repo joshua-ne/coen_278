@@ -2,6 +2,7 @@
 require_relative 'String'
 require_relative 'Search'
 require_relative 'Compress'
+require_relative 'Hash'
 
 #clear the terminal output
 system("clear")
@@ -98,19 +99,41 @@ puts "*************************************************"
 # Question 4
 puts "Output of Question-4: "
 puts "-------------------------------------------------"
-
-
-puts "Case 1: "
+puts "Case 1: Test merge() without given block"
+h1 = { "a" => 100, "b" => 200 }
+h2 = { "b" => 254, "c" => 300 }
+printf "%-20s" , "h1: "; p h1
+printf "%-20s" , "h2: ";p h2
+printf "%-20s" , "merge: ";p h1.merge(h2)
+printf "%-20s" , "h1 after merge: ";p h1
 puts
 
-puts "Case 2: "
+puts "Case 2: Test merge() with given block"
+h1 = { "a" => 100, "b" => 200 }
+h2 = { "b" => 254, "c" => 300 }
+printf "%-20s" , "h1: "; p h1
+printf "%-20s" , "h2: ";p h2
+printf "%-20s" , "merge: ";p h1.merge(h2){|key, v1, v2| (v1 + v2)}
+printf "%-20s" , "h1 after merge: ";p h1
 puts
 
-puts "Case 3: "
+puts "Case 3: Test merge!() without given block"
+h1 = { "a" => 100, "b" => 200 }
+h2 = { "b" => 254, "c" => 300 }
+printf "%-20s" , "h1: "; p h1
+printf "%-20s" , "h2: ";p h2
+printf "%-20s" , "merge: ";p h1.merge!(h2)
+printf "%-20s" , "h1 after merge: ";p h1
 puts
 
-puts "Case 4: "
-
+puts "Case 4: Test merge!() without given block"
+h1 = { "a" => 100, "b" => 200 }
+h2 = { "b" => 254, "c" => 300 }
+# putting printf and p in the same line with ';' seperation for better readibility for this specific case
+printf "%-20s" , "h1: "; p h1
+printf "%-20s" , "h2: ";p h2
+printf "%-20s" , "merge: ";p h1.merge!(h2){|key, v1, v2| (v1 + v2)}
+printf "%-20s" , "h1 after merge: ";p h1
 puts
 puts "END of Question-4"
 puts "*************************************************"
