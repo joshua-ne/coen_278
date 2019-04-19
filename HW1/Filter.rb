@@ -11,7 +11,7 @@ class Filter
     # remove lines start with %
     filtered_template.gsub!(/^%/, "")
     # remove lines with only spaces
-    filtered_template = filtered_template.each_line.reject{|x| x.strip == ""}.join
+    filtered_template = filtered_template.each_line.reject{|line| line.strip == ""}.join
   end
 end
 
