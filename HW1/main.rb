@@ -3,6 +3,7 @@ require_relative 'String'
 require_relative 'Search'
 require_relative 'Compress'
 require_relative 'Hash'
+require_relative 'Filter'
 
 #clear the terminal output
 system("clear")
@@ -143,18 +144,33 @@ puts "*************************************************"
 # Question 5
 puts "Output of Question-5: "
 puts "-------------------------------------------------"
+template = %{
+  <%= simple_form_for @project do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <h3>Tasks</h3>
+    <div id='tasks'>
+      <%= f.simple_fields_for :tasks do |task| %>
+        <%= render 'task_fields', :f => task %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'add task', f, :tasks %>
+      </div>
+    </div>
+    <%= f.submit 'Save' %>
+  <% end %>
+}
 
+puts "original template as below: "
+puts template
 
-puts "Case 1: "
-puts
+3.times {puts}
 
-puts "Case 2: "
-puts
+obj = Filter.new(template)
+filtered_template = obj.filter()
 
-puts "Case 3: "
-puts
-
-puts "Case 4: "
+puts "template after filter(removing ruby codes): "
+puts filtered_template
 
 puts
 puts "END of Question-5"
