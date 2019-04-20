@@ -79,7 +79,7 @@ p obj.words
 p obj.indexes
 puts
 
-puts "Case 2: anther extreme test"
+puts "Case 2: another extreme test"
 obj = Compress.new("love hate hate love love a a a b b b")
 p obj.original_string
 p obj.words
@@ -129,7 +129,7 @@ printf "%-20s" , "merge: ";p h1.merge!(h2)
 printf "%-20s" , "h1 after merge: ";p h1
 puts
 
-puts "Case 4: Test merge!() without given block"
+puts "Case 4: Test merge!() with given block"
 h1 = { "a" => 100, "b" => 200 }
 h2 = { "b" => 254, "c" => 300 }
 # putting printf and p in the same line with ';' seperation for better readibility for this specific case
